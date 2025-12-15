@@ -662,6 +662,95 @@
     }
 }
 
+/* Sample Numbers Section */
+.sample-numbers {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.sample-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.sample-number-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sample-number-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: left;
+}
+
+.sample-number-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(5px);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.sample-num {
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: 'Courier New', monospace;
+}
+
+.sample-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .login-features {
+        order: -1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .sample-number-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .sample-number-btn {
+        flex: 1;
+        min-width: 140px;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
+    
+    .sample-badge {
+        font-size: 0.7rem;
+    }
+}
+
 @media (max-width: 640px) {
     .login-page {
         padding: 1rem;
@@ -680,5 +769,57 @@
         align-items: flex-start;
         gap: 1rem;
     }
+    
+    .sample-number-list {
+        flex-direction: column;
+    }
+    
+    .sample-number-btn {
+        width: 100%;
+        flex-direction: row;
+    }
+    
+    .login-features {
+        flex-direction: column;
+    }
+}
+
+/* Chatbot-themed enhancements */
+.login-background .ai-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.login-background .ai-particles .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.login-background .ai-particles .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.login-background .ai-particles .particle:nth-child(2) { left: 30%; animation-delay: 2s; }
+.login-background .ai-particles .particle:nth-child(3) { left: 50%; animation-delay: 4s; }
+.login-background .ai-particles .particle:nth-child(4) { left: 70%; animation-delay: 6s; }
+.login-background .ai-particles .particle:nth-child(5) { left: 90%; animation-delay: 8s; }
+.login-background .ai-particles .particle:nth-child(6) { left: 20%; animation-delay: 10s; }
+
+.login-logo i {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+}
+
+.feature-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
 }
 

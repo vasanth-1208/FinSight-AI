@@ -227,23 +227,32 @@ const statsObserver = new IntersectionObserver((entries) => {
             entry.target.classList.add('animated');
             const statValue = entry.target.querySelector('.stat-value');
             if (statValue) {
-                const text = statValue.textContent;
-                let numericValue = parseFloat(text.replace(/[^0-9.]/g, ''));
-                
-                // Handle Indian currency format
-                if (text.includes('L Cr') || text.includes('Lakh Cr')) {
-                    numericValue *= 100000000000;
-                } else if (text.includes('Cr')) {
-                    numericValue *= 10000000;
-                } else if (text.includes('L') || text.includes('Lakh')) {
-                    numericValue *= 100000;
-                } else if (text.includes('B')) {
-                    numericValue *= 1000000000;
-                } else if (text.includes('M')) {
-                    numericValue *= 1000000;
+                // Skip animation for non-numeric values
+                const text = statValue.textContent.trim();
+                if (text === '5' || text === '24/7' || text === 'Instant') {
+                    // These are static values, don't animate
+                    return;
                 }
                 
-                animateCounter(statValue, numericValue);
+                let numericValue = parseFloat(text.replace(/[^0-9.]/g, ''));
+                
+                // Only animate if we have a valid numeric value
+                if (!isNaN(numericValue) && numericValue > 0) {
+                    // Handle Indian currency format
+                    if (text.includes('L Cr') || text.includes('Lakh Cr')) {
+                        numericValue *= 100000000000;
+                    } else if (text.includes('Cr')) {
+                        numericValue *= 10000000;
+                    } else if (text.includes('L') || text.includes('Lakh')) {
+                        numericValue *= 100000;
+                    } else if (text.includes('B')) {
+                        numericValue *= 1000000000;
+                    } else if (text.includes('M')) {
+                        numericValue *= 1000000;
+                    }
+                    
+                    animateCounter(statValue, numericValue);
+                }
             }
         }
     });

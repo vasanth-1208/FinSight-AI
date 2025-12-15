@@ -6,9 +6,9 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// MongoDB connection
-const MONGODB_URI = 'mongodb+srv://vasanth51575_db_user:WK1G0tImSfJom6zj@ey-tech.jw1mgsm.mongodb.net/?appName=ey-tech';
-const DB_NAME = 'easilon_bank';
+// MongoDB connection - Use environment variable or default
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://vasanth51575_db_user:WK1G0tImSfJom6zj@ey-tech.jw1mgsm.mongodb.net/?appName=ey-tech';
+const DB_NAME = process.env.DB_NAME || 'alphacoders_bank';
 
 let db = null;
 let client = null;

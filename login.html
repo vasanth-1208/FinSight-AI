@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Easilon Bank</title>
+    <title>Login - AlphaCoders Bank</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,8 @@
             <div class="shape shape-2"></div>
             <div class="shape shape-3"></div>
         </div>
-        <div class="particles">
+        <div class="ai-particles">
+            <div class="particle"></div>
             <div class="particle"></div>
             <div class="particle"></div>
             <div class="particle"></div>
@@ -34,10 +35,37 @@
             <div class="login-header">
                 <a href="index.html" class="login-logo">
                     <i class="fas fa-university"></i>
-                    <span>Easilon Bank</span>
+                    <span>AlphaCoders Bank</span>
                 </a>
-                <h1>Welcome Back</h1>
-                <p>Sign in to access your account</p>
+                <h1>Welcome to AI Chatbot</h1>
+                <p>Sign in to start chatting with our intelligent loan assistant</p>
+                
+                <!-- Sample Numbers -->
+                <div class="sample-numbers">
+                    <p class="sample-label">Try with sample numbers:</p>
+                    <div class="sample-number-list">
+                        <button class="sample-number-btn" onclick="fillSampleNumber('9876543210')" title="Instant Approval">
+                            <span class="sample-num">9876543210</span>
+                            <span class="sample-badge">Instant Approval</span>
+                        </button>
+                        <button class="sample-number-btn" onclick="fillSampleNumber('9123456780')" title="Salary Slip Required">
+                            <span class="sample-num">9123456780</span>
+                            <span class="sample-badge">Salary Slip</span>
+                        </button>
+                        <button class="sample-number-btn" onclick="fillSampleNumber('7654321098')" title="High Amount">
+                            <span class="sample-num">7654321098</span>
+                            <span class="sample-badge">High Amount</span>
+                        </button>
+                        <button class="sample-number-btn" onclick="fillSampleNumber('9679012345')" title="Low Credit">
+                            <span class="sample-num">9679012345</span>
+                            <span class="sample-badge">Low Credit</span>
+                        </button>
+                        <button class="sample-number-btn" onclick="fillSampleNumber('8765432109')" title="Rejection">
+                            <span class="sample-num">8765432109</span>
+                            <span class="sample-badge">Rejection</span>
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <!-- Login Form -->
@@ -132,29 +160,39 @@
         <div class="login-features">
             <div class="feature-item">
                 <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
+                    <i class="fas fa-robot"></i>
                 </div>
-                <h3>Secure Banking</h3>
-                <p>Bank-level encryption keeps your data safe</p>
+                <h3>AI-Powered</h3>
+                <p>Multi-agent AI system handles your loan application</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">
-                    <i class="fas fa-mobile-alt"></i>
+                    <i class="fas fa-bolt"></i>
                 </div>
-                <h3>Mobile Access</h3>
-                <p>Access your account from anywhere, anytime</p>
+                <h3>Instant Processing</h3>
+                <p>Get loan approvals in minutes, not days</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">
-                    <i class="fas fa-headset"></i>
+                    <i class="fas fa-comments"></i>
                 </div>
-                <h3>24/7 Support</h3>
-                <p>Our team is always here to help you</p>
+                <h3>Natural Conversation</h3>
+                <p>Chat naturally - no forms, no complexity</p>
             </div>
         </div>
     </div>
 
     <script src="login.js"></script>
+    <script>
+        function fillSampleNumber(number) {
+            const mobileInput = document.getElementById('mobile');
+            if (mobileInput) {
+                mobileInput.value = number;
+                mobileInput.focus();
+                // Trigger input event to update UI
+                mobileInput.dispatchEvent(new Event('input'));
+            }
+        }
+    </script>
 </body>
 </html>
-

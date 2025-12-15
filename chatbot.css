@@ -6,6 +6,15 @@
     flex-direction: column;
 }
 
+/* Top navigation bar sticky */
+.dashboard-nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
 .chatbot-container {
     display: flex;
     flex: 1;
@@ -167,19 +176,22 @@
 }
 
 .chat-header {
-    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 1.25rem 2rem;
     border-bottom: 1px solid #e5e7eb;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+    background: #ffffff;
 }
 
 .chat-header-info h1 {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
-    color: var(--text-dark);
+    color: #0f172a;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -191,7 +203,7 @@
 
 .chat-header-info p {
     font-size: 0.9rem;
-    color: var(--text-light);
+    color: #475569;
 }
 
 .icon-btn {
@@ -295,18 +307,21 @@
 }
 
 .message-text {
-    background: white;
+    background: #f8fafc;
     padding: 1rem 1.25rem;
     border-radius: 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     line-height: 1.6;
-    color: var(--text-dark);
+    color: #0f172a;
     word-wrap: break-word;
 }
 
 .user-message .message-text {
     background: var(--gradient-premium);
-    color: white;
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 6px 18px rgba(102, 126, 234, 0.25);
 }
 
 .message-text ul {
@@ -472,5 +487,79 @@
     .message-content {
         max-width: 85%;
     }
+}
+
+/* Chatbot-themed enhancements */
+.chatbot-avatar-header {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.chat-header-info h1 {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.chat-header-info h1 > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #10b981;
+    font-weight: 500;
+}
+
+.status-indicator .status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.sidebar-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.sidebar-header h2 {
+    color: white;
+}
+
+.sidebar-header h2 i {
+    color: white;
+}
+
+.sidebar-header p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.chat-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.chat-header-info h1 {
+    color: white;
+}
+
+.chat-header-info p {
+    color: rgba(255, 255, 255, 0.9);
 }
 
