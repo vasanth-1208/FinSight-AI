@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Easilon Bank</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <!-- Navigation -->
+    <nav class="dashboard-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-university"></i>
+                    <span>Easilon Bank</span>
+                </div>
+                <div class="nav-actions">
+                    <div class="user-info">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="userMobile">Loading...</span>
+                    </div>
+                    <a href="chatbot.html" class="btn-secondary">
+                        <i class="fas fa-comments"></i> Chatbot
+                    </a>
+                    <a href="index.html" class="btn-secondary">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-section">
+                <h3>Demo Scenarios</h3>
+                <div class="scenario-list">
+                    <div class="scenario-item" data-mobile="9876543210">
+                        <span class="scenario-number">9876543210</span>
+                        <span class="scenario-label">→ Instant Approval</span>
+                    </div>
+                    <div class="scenario-item" data-mobile="9123456780">
+                        <span class="scenario-number">9123456780</span>
+                        <span class="scenario-label">→ Salary Slip Required (Low Credit)</span>
+                    </div>
+                    <div class="scenario-item" data-mobile="7654321098">
+                        <span class="scenario-number">7654321098</span>
+                        <span class="scenario-label">→ Salary Slip Required (High Amount)</span>
+                    </div>
+                    <div class="scenario-item" data-mobile="9679012345">
+                        <span class="scenario-number">9679012345</span>
+                        <span class="scenario-label">→ Rejection – Low Credit Score</span>
+                    </div>
+                    <div class="scenario-item" data-mobile="8765432109">
+                        <span class="scenario-number">8765432109</span>
+                        <span class="scenario-label">→ Rejection – Amount > 2× Limit</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <h1>Loan Application Dashboard</h1>
+                <p>Real-time status of your loan application</p>
+            </div>
+
+            <!-- Customer Profile Panel -->
+            <section class="dashboard-panel customer-panel">
+                <div class="panel-header">
+                    <h2><i class="fas fa-user"></i> Customer Profile</h2>
+                    <span class="panel-badge" id="kycStatus">Pending</span>
+                </div>
+                <div class="panel-content">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Customer Name</label>
+                            <span id="customerName">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Mobile Number</label>
+                            <span id="customerMobile">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Customer ID</label>
+                            <span id="customerId">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Age</label>
+                            <span id="customerAge">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>City</label>
+                            <span id="customerCity">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Address</label>
+                            <span id="customerAddress">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Date of Birth</label>
+                            <span id="customerDOB">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Employment Type</label>
+                            <span id="employmentType">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Monthly Salary</label>
+                            <span id="monthlySalary">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Existing Customer</label>
+                            <span id="existingCustomer">-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loan Request Summary Panel -->
+            <section class="dashboard-panel loan-request-panel">
+                <div class="panel-header">
+                    <h2><i class="fas fa-file-invoice-dollar"></i> Loan Request Summary</h2>
+                    <span class="stage-badge" id="currentStage">Collecting Details</span>
+                </div>
+                <div class="panel-content">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Requested Loan Amount</label>
+                            <span id="loanAmount">₹0</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Tenure (Months)</label>
+                            <span id="loanTenure">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Purpose of Loan</label>
+                            <span id="loanPurpose">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Application Channel</label>
+                            <span>Web Chatbot</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Request Timestamp</label>
+                            <span id="requestTimestamp">-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Underwriting & Risk Evaluation Panel -->
+            <section class="dashboard-panel underwriting-panel">
+                <div class="panel-header">
+                    <h2><i class="fas fa-chart-line"></i> Underwriting & Risk Evaluation</h2>
+                    <span class="status-badge" id="eligibilityStatus">Pending</span>
+                </div>
+                <div class="panel-content">
+                    <div class="underwriting-grid">
+                        <!-- Credit & Offer Details -->
+                        <div class="underwriting-section">
+                            <h3>Credit & Offer Details</h3>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <label>Credit Score</label>
+                                    <span class="credit-score" id="creditScore">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Credit Score Band</label>
+                                    <span class="score-band" id="creditScoreBand">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Pre-Approved Loan Limit</label>
+                                    <span id="preApprovedLimit">₹0</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Base Interest Rate</label>
+                                    <span id="baseInterestRate">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Max Allowed Tenure</label>
+                                    <span id="maxTenure">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EMI & Income Calculation -->
+                        <div class="underwriting-section">
+                            <h3>EMI & Income Calculation</h3>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <label>Requested Loan Amount</label>
+                                    <span id="calcLoanAmount">₹0</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Interest Rate Applied</label>
+                                    <span id="appliedInterestRate">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Tenure</label>
+                                    <span id="calcTenure">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Calculated EMI</label>
+                                    <span class="emi-value" id="calculatedEMI">₹0</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Monthly Salary</label>
+                                    <span id="calcMonthlySalary">₹0</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>EMI / Salary Ratio</label>
+                                    <span class="ratio-value" id="emiRatio">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Max Allowed EMI (50% Rule)</label>
+                                    <span id="maxAllowedEMI">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Eligibility Rules -->
+                    <div class="eligibility-rules">
+                        <h3>Eligibility Rules Triggered</h3>
+                        <div class="rules-list" id="eligibilityRules">
+                            <div class="rule-item pending">
+                                <i class="fas fa-clock"></i>
+                                <span>Awaiting evaluation...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Final Eligibility Status -->
+                    <div class="final-status">
+                        <h3>Final Eligibility Status</h3>
+                        <div class="status-display" id="finalStatusDisplay">
+                            <div class="status-message">Evaluation in progress...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Agent Orchestration Panel -->
+            <section class="dashboard-panel agent-panel">
+                <div class="panel-header">
+                    <h2><i class="fas fa-robot"></i> Agent Orchestration</h2>
+                    <span class="agent-badge" id="currentAgent">Master Agent</span>
+                </div>
+                <div class="panel-content">
+                    <div class="agent-timeline">
+                        <div class="timeline-item" data-agent="master">
+                            <div class="timeline-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Master Agent</h4>
+                                <p>Start Conversation</p>
+                                <span class="timeline-status pending">Pending</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-agent="sales">
+                            <div class="timeline-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Sales Agent</h4>
+                                <p>Collect Loan Details</p>
+                                <span class="timeline-status pending">Pending</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-agent="verification">
+                            <div class="timeline-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Verification Agent</h4>
+                                <p>CRM & KYC</p>
+                                <span class="timeline-status pending">Pending</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-agent="underwriting">
+                            <div class="timeline-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Underwriting Agent</h4>
+                                <p>Risk Evaluation</p>
+                                <span class="timeline-status pending">Pending</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-agent="sanction">
+                            <div class="timeline-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Sanction Letter Agent</h4>
+                                <p>Generate Letter</p>
+                                <span class="timeline-status pending">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Salary Slip Verification Panel (Conditional) -->
+            <section class="dashboard-panel salary-slip-panel" id="salarySlipPanel" style="display: none;">
+                <div class="panel-header">
+                    <h2><i class="fas fa-file-upload"></i> Salary Slip Verification</h2>
+                </div>
+                <div class="panel-content">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Salary from CRM</label>
+                            <span id="crmSalary">₹0</span>
+                        </div>
+                        <div class="info-item">
+                            <label>EMI Calculated</label>
+                            <span id="slipEMI">₹0</span>
+                        </div>
+                        <div class="info-item">
+                            <label>EMI vs Salary Comparison</label>
+                            <span id="slipComparison">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Re-evaluation Status</label>
+                            <span id="reevaluationStatus">Pending</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Updated Decision</label>
+                            <span id="updatedDecision">-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Decision & Sanction Panel -->
+            <section class="dashboard-panel decision-panel" id="decisionPanel" style="display: none;">
+                <div class="panel-header">
+                    <h2><i class="fas fa-gavel"></i> Final Decision & Sanction</h2>
+                </div>
+                <div class="panel-content">
+                    <div class="decision-content" id="decisionContent">
+                        <!-- Content will be populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- System Metadata Panel -->
+            <section class="dashboard-panel metadata-panel">
+                <div class="panel-header">
+                    <h2><i class="fas fa-info-circle"></i> System Metadata</h2>
+                </div>
+                <div class="panel-content">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Decision Time</label>
+                            <span id="decisionTime">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Automation Level</label>
+                            <span>Fully Automated</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Manual Review Required</label>
+                            <span id="manualReview">No</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Audit Ready</label>
+                            <span>Yes</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
+

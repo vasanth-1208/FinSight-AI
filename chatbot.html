@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot - Easilon Bank</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:,">
+</head>
+<body class="chatbot-page">
+    <!-- Navigation -->
+    <nav class="dashboard-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-university"></i>
+                    <span>Easilon Bank</span>
+                </div>
+                <div class="nav-actions">
+                    <a href="dashboard.html" class="btn-secondary">
+                        <i class="fas fa-chart-line"></i> Dashboard
+                    </a>
+                    <a href="index.html" class="btn-secondary">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="chatbot-container">
+        <!-- Chatbot Sidebar -->
+        <aside class="chatbot-sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-robot"></i> AI Agents</h2>
+                <p>Multi-Agent System</p>
+            </div>
+            
+            <div class="agent-status-list">
+                <div class="agent-status-item" id="agent-master">
+                    <div class="agent-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="agent-info">
+                        <h4>Master Agent</h4>
+                        <span class="agent-status active">Active</span>
+                    </div>
+                </div>
+                
+                <div class="agent-status-item" id="agent-sales">
+                    <div class="agent-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="agent-info">
+                        <h4>Sales Agent</h4>
+                        <span class="agent-status">Idle</span>
+                    </div>
+                </div>
+                
+                <div class="agent-status-item" id="agent-verification">
+                    <div class="agent-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="agent-info">
+                        <h4>Verification Agent</h4>
+                        <span class="agent-status">Idle</span>
+                    </div>
+                </div>
+                
+                <div class="agent-status-item" id="agent-underwriting">
+                    <div class="agent-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="agent-info">
+                        <h4>Underwriting Agent</h4>
+                        <span class="agent-status">Idle</span>
+                    </div>
+                </div>
+                
+                <div class="agent-status-item" id="agent-sanction">
+                    <div class="agent-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="agent-info">
+                        <h4>Sanction Agent</h4>
+                        <span class="agent-status">Idle</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <button class="quick-action-btn" onclick="startNewConversation()">
+                    <i class="fas fa-plus"></i> New Conversation
+                </button>
+                <button class="quick-action-btn" onclick="clearChat()">
+                    <i class="fas fa-trash"></i> Clear Chat
+                </button>
+            </div>
+        </aside>
+
+        <!-- Chat Area -->
+        <main class="chatbot-main">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <h1><i class="fas fa-comments"></i> AI Loan Assistant</h1>
+                    <p>Ask me anything about loans or start your application</p>
+                </div>
+                <div class="chat-header-actions">
+                    <button class="icon-btn" onclick="minimizeChat()" title="Minimize">
+                        <i class="fas fa-window-minimize"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome message will be shown here if no history -->
+            </div>
+
+            <div class="chat-input-container">
+                <div class="suggested-questions" id="suggestedQuestions">
+                    <button class="suggestion-chip" onclick="sendSuggestion('I want to apply for a loan')">
+                        💰 Apply for Loan
+                    </button>
+                    <button class="suggestion-chip" onclick="sendSuggestion('Check my eligibility')">
+                        ✅ Check Eligibility
+                    </button>
+                    <button class="suggestion-chip" onclick="sendSuggestion('Calculate EMI')">
+                        🧮 Calculate EMI
+                    </button>
+                    <button class="suggestion-chip" onclick="sendSuggestion('What documents do I need?')">
+                        📄 Required Documents
+                    </button>
+                </div>
+                <div class="chat-input-wrapper">
+                    <input 
+                        type="text" 
+                        id="chatInput" 
+                        class="chat-input" 
+                        placeholder="Type your message here..."
+                        autocomplete="off"
+                    >
+                    <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>
+
